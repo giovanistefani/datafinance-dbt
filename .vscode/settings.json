@@ -1,12 +1,4 @@
 {
     "sqltools.useNodeRuntime": true,
-    "sqltools.connections": [
-        {
-            "name": "DuckDB",
-            "accessMode": "Read Only",
-            "previewLimit": 100,
-            "driver": "DuckDB",
-            "databaseFilePath": "datafinance_edw/data/edw_local.duckdb"
-        }
-    ]
+    "sqltools.connections": []
 }

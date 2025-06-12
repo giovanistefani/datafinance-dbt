@@ -17,23 +17,13 @@ SELECT
     TRY_CAST(REPLACE(REPLACE(DÉBITO, '.', ''), ',', '.') AS NUMERIC(18, 2)) AS valor_debito, -- Confirmar 'débito' com acento
     TRY_CAST(REPLACE(REPLACE(SALDO, '.', ''), ',', '.') AS NUMERIC(18, 2)) AS valor_saldo,
 
-    -- Para incluir todas as outras colunas da sua tabela seed:
-    -- Opção 1 (Recomendada com dbt): Use a macro `star` do pacote `dbt_utils`.
-    --    Isso requer que o pacote `dbt-utils` esteja instalado no seu projeto dbt
-    --    (adicione-o ao seu arquivo `packages.yml` e rode `dbt deps`).
-    --    Esta macro selecionará todas as colunas do seed, exceto as já listadas/transformadas acima.
-    --    Os nomes na lista 'except' devem ser
-    --    os nomes das colunas como são no seed 'unoserv' (após a normalização do dbt,
-    --    geralmente minúsculas e com espaços substituídos por underscores). Confirmar acentos e CASO aqui também.
-    {{ dbt_utils.star(from=ref('unoserv'), except=["DATA", "CÓDIGO", "CRÉDITO", "DÉBITO", "SALDO"]) }}
+    -- Selecionando e renomeando as colunas restantes explicitamente
+    HISTÓRICO AS historico_transacao, -- Confirmar 'HISTÓRICO' com acento
+    DOCUMENTO AS documento_referencia,
+    -- Se o nome da coluna original no banco de dados contém espaços/caracteres especiais,
+    -- ele precisa ser envolvido em aspas duplas.
+    "CLIENTE / FORNECEDOR" AS nome_cliente_fornecedor
 
-    -- Opção 2 (Manual): Se você não usa `dbt_utils` ou prefere ser explícito,
-    --    liste todas as outras colunas aqui, separadas por vírgula, usando os nomes normalizados.
-    --    Exemplo:
-    --    historico,
-    --    documento,
-    --    cliente_fornecedor
-    --    -- Certifique-se de remover a linha com `dbt_utils.star` acima se optar por esta abordagem.
 
 -- Referencia o seed 'unoserv'. O dbt cuidará de encontrar a tabela correta.
 FROM {{ ref('unoserv') }}

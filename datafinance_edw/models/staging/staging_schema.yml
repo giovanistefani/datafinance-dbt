@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_unoserv
+    config:
+      materialized: table
+    # Você pode adicionar outras configurações, descrições ou testes aqui no futuro
+    # description: "Tabela de staging para dados da Unoserv, com transformações e limpeza iniciais."
+    # columns:
+    #   - name: data_transacao
+    #     description: "Data da transação no formato YYYY-MM-DD."
+    #     tests:
+    #       - not_null
