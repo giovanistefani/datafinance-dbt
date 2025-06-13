@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: trusted_unoserv
+    config:
+      materialized: table  
+      schema: "trusted"       
+    description: "Tabela trusted."
+    columns:
+      - name: data_transacao
+        description: "Data da transação."
+      - name: id_transacao
+        description: "Código da transação na origem."
+      - name: valor_credito
+        description: "Valor do crédito."
+      - name: valor_debito
+        description: "Valor do débito."
+      - name: valor_saldo
+        description: "Valor do saldo."
+      - name: historico_transacao
+        description: "Histórico da transação."
+      - name: documento_referencia
+        description: "Documento de referência."
+      - name: nome_cliente_fornecedor
+        description: "Nome do cliente ou fornecedor."
