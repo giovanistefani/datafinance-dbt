@@ -12,3 +12,14 @@ seeds:
         SALDO: varchar
         CÓDIGO: varchar   # Com acento
         "CLIENTE / FORNECEDOR": varchar
+  - name: trevosul
+    config:
+      column_types:
+        DATA: varchar
+        HISTÓRICO: varchar
+        DOCUMENTO: varchar
+        CRÉDITO: varchar  # Com acento
+        DÉBITO: varchar   # Com acento
+        SALDO: varchar
+        CÓDIGO: varchar   # Com acento
+        "CLIENTE / FORNECEDOR": varchar

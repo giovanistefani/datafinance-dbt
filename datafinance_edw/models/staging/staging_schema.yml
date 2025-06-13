@@ -11,3 +11,6 @@ models:
     #     description: "Data da transação no formato YYYY-MM-DD."
     #     tests:
     #       - not_null
+  - name: stg_trevosul
+    config:
+      materialized: table
